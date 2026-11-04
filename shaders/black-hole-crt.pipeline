@@ -7,6 +7,11 @@
 var float4 TINT = float4(0, 0.8, 0.6, 1)
 
 startgroup
+    # On from the start, and again whenever the window gains focus.
+    animation_start os-window-focus-in
+    animation_stop never
+    # The black-hole event (see kitty.conf) switches the hole off and on.
+    animation_toggle user:black-hole
     animation_step 33   # about 30 frames per second
     shaders black-hole
 endgroup

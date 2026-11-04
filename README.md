@@ -26,6 +26,28 @@ echo 'custom_shaders black-hole-crt' >> ~/.config/kitty/kitty.conf
 
 Open a new kitty window, or press `ctrl+shift+f5` to reload the configuration.
 
+## Switch the black hole off and on
+
+The pipeline defines the event `black-hole`. Map a key to it in `kitty.conf`:
+
+```
+map f9 shader_event black-hole
+```
+
+Each press of `F9` switches the black hole off or on. The CRT effect stays on.
+The event goes to the active OS window. Use `shader_event black-hole all` to
+send it to all OS windows.
+
+You can also send the event from a script, if remote control is enabled
+(`allow_remote_control` in `kitty.conf`):
+
+```bash
+kitten @ action shader_event black-hole
+```
+
+The black hole is on when kitty starts. It also switches on again when the
+window regains focus.
+
 To use the black hole without the CRT effect, remove the second group from
 `black-hole-crt.pipeline`.
 
