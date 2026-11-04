@@ -1,0 +1,16 @@
+# Black hole at the top of the window, combined with the shipped crt-blue look.
+# The first group draws the black hole into the backbuffer.
+# The second group is the same as the shipped crt-blue pipeline: it warps and
+# tints the result, so the hole also gets the CRT curve and scanlines.
+
+# Same tint as the shipped crt-blue pipeline (only the crt shader reads it).
+var float4 TINT = float4(0, 0.8, 0.6, 1)
+
+startgroup
+    animation_step 33   # about 30 frames per second
+    shaders black-hole
+endgroup
+
+startgroup
+    shaders crt
+endgroup
